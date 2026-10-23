@@ -10,5 +10,7 @@ class Variables:
 		methodOneLocalV = "MethodOne Local Variable"
 		print(methodOneLocalV)
 
+	def hello(self):
+		print("Hello")
 var = Variables("Variable1","Varible2")
 print(var.methodOneLocalV)
