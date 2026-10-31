@@ -8,6 +8,8 @@
 # Sixth way is by using raw strings
 # Seventh way is by using str() constructor.
 
+
+
 # Different ways to create a string.
 # 1)Using single quotes.
 stringUsingSingleQuotes = 'This String is created using single quotes.'
