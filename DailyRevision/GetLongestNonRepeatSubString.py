@@ -1,27 +1,30 @@
-class GetLongestNonRepeatSubString:
-	def getLongestNonRepeatSubString(self):
-		wishToContinue = True
-		while wishToContinue:
-			inputData = input("Please enter the input String:")
-			print("Entered input string is: {}".format(inputData))
-			left = 0
-			maxLength = 0
-			outputString = ""
-			characterSet = set()
-			for right in range(len(inputData)):
-				while inputData[right] in characterSet:
-					characterSet.remove(inputData[left])
-					left += 1
-				characterSet.add(inputData[right])
-				if right - left + 1 > maxLength:
-					maxLength = right - left + 1
-					outputString = inputData[left : right + 1]
-			print("The Longest Non Repeat Character from above string is: {}".format(outputString))
-			userWish = input("Do you wants to check with another string?(y/n)")
-			if not userWish == "y":
-				print("Thanks for using this application! Have a great day!")
-				wishToContinue = False
-			else:
-				wishToContinue = True
-glnrss = GetLongestNonRepeatSubString()
-glnrss.getLongestNonRepeatSubString()
+from collections import Counter
+
+
+class GetFirstUniqueCharacter:
+    def getFirstUniqueCharacter(self):
+        wish = True
+        while wish:
+            inputData = input("Please enter the input data:")
+            print("Entered input data is: {}".format(inputData))
+            self.output = GetFirstUniqueCharacter.getElement(self,inputData)
+            if not self.output == -1:
+                print(self.output)
+            else:
+                print("There is not unique character in the given string!")
+            userWish = input("Do you wants to check with another string?(y/n)")
+            if not userWish == 'y':
+                print("Thanks for using this application! Have a great day!")
+                wish = False
+            else:
+                wish = True
+    def getElement(self,inputData):
+        characterCounter = Counter(inputData)
+        for index, element in enumerate(inputData):
+            if characterCounter[element] == 1:
+                return element
+        return -1
+
+
+gfuc = GetFirstUniqueCharacter()
+gfuc.getFirstUniqueCharacter()
